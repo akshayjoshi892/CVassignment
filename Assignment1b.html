@@ -1,0 +1,72 @@
+<button id="addRowBottom">Add row to bottom</button>
+<button id="addRowTop">Add row to top</button>
+<table id="table">
+   <tr>
+      <th>SL.No.</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>City</th>
+      <th>Country</th>
+   </tr>
+   <tr>
+      <td>1</td>
+      <td>John</td>
+      <td>Doe</td>
+      <td>New York</td>
+      <td>USA</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>Jane</td>
+      <td>Doe</td>
+      <td>London</td>
+      <td>UK</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>Bob</td>
+      <td>Smith</td>
+      <td>Paris</td>
+      <td>France</td>
+   </tr>
+</table>
+
+<script>
+   let table = document.getElementById("table");
+
+   document
+      .getElementById("addRowBottom")
+      .addEventListener("click", function () {
+         let row = table.insertRow(-1);
+         let slNo = row.insertCell(0);
+         let firstName = row.insertCell(1);
+         let lastName = row.insertCell(2);
+         let city = row.insertCell(3);
+         let country = row.insertCell(4);
+
+         slNo.innerHTML = table.rows.length - 1;
+         firstName.innerHTML = "xyz";
+         lastName.innerHTML = "xyz";
+         city.innerHTML = "xyz";
+         country.innerHTML = "xyz";
+      });
+
+   document.getElementById("addRowTop").addEventListener("click", function () {
+      let row = table.insertRow(1);
+      let slNoCell = row.insertCell(0);
+      let firstNameCell = row.insertCell(1);
+      let lastNameCell = row.insertCell(2);
+      let cityCell = row.insertCell(3);
+      let countryCell = row.insertCell(4);
+
+      slNoCell.innerHTML = 1;
+      firstNameCell.innerHTML = "xyz";
+      lastNameCell.innerHTML = "xyz";
+      cityCell.innerHTML = "xyz";
+      countryCell.innerHTML = "xyz";
+
+      for (let i = 2; i < table.rows.length; i++) {
+         table.rows[i].cells[0].innerHTML = i;
+      }
+   });
+</script>

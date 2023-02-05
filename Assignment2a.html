@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Assignment2a</title>
+   </head>
+   <body>
+      <div>
+         <label for="sentence">Enter a Sentence:</label>
+         <input type="text" id="sentence" />
+      </div>
+      <div>
+         <label for="letter">Enter a Letter:</label>
+         <input type="text" id="letter" maxlength="1" />
+      </div>
+      <button id="submitButton">Submit</button>
+      <p id="result"></p>
+
+      <script>
+         document
+            .getElementById("submitButton")
+            .addEventListener("click", function () {
+               let sentence = document
+                  .getElementById("sentence")
+                  .value.toLowerCase();
+               let letter = document
+                  .getElementById("letter")
+                  .value.toLowerCase();
+               let output = document.getElementById("result");
+
+               let letterIndex = sentence.indexOf(letter);
+
+               if (letterIndex === -1) {
+                  output.innerHTML =
+                     "The letter does not exist in the sentence.";
+               } else {
+                  output.innerHTML = sentence.substr(letterIndex + 1);
+               }
+            });
+      </script>
+   </body>
+</html>
